@@ -7,7 +7,7 @@
     tools:context=".Profile">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/Health_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -15,10 +15,10 @@
         android:text="@string/healthy"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NameTV" />
+        app:layout_constraintTop_toBottomOf="@+id/Profile_nameTV" />
 
     <TextView
-        android:id="@+id/NameTV"
+        android:id="@+id/Profile_nameTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

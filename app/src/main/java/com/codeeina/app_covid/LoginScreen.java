@@ -19,6 +19,9 @@ public class LoginScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(UserData.isLogged())
+            startActivity(new Intent(this, Profile.class));
+
         setContentView(R.layout.activity_login_screen);
         name_tv = findViewById(R.id.LoginNameTV);
         pass_tv = findViewById(R.id.LoginPassTV);
@@ -34,6 +37,8 @@ public class LoginScreen extends AppCompatActivity {
         pass = HashHelper.get_SecurePassword(pass_tv.getText().toString());
 
         if(Validate()) {
+            UserData.setName(name);
+            UserData.setLogged(true);
             Intent i = new Intent(this, Profile.class);
             startActivity(i);
         } else {
