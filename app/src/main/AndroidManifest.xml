@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".CovidStatsMenuActivity" />
         <activity android:name=".RomaniaStatsActivity" />
+        <activity android:name=".GlobalStatsActivity" />
     </application>
 
 </manifest>

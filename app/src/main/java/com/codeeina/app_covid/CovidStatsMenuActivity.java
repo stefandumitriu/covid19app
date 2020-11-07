@@ -20,5 +20,13 @@ public class CovidStatsMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(CovidStatsMenuActivity.this, RomaniaStatsActivity.class));
             }
         });
+
+        Button globalButton = findViewById(R.id.global_stats_covidstats_screen);
+        globalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CovidStatsMenuActivity.this, GlobalStatsActivity.class));
+            }
+        });
     }
 }
