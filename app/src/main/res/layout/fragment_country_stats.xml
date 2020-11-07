@@ -94,10 +94,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/lightBlue"
+        android:drawableRight="@drawable/ic_outline_arrow_forward_24"
         android:text="Detailed View"
         android:textColor="@color/white"
-        android:drawableRight="@drawable/ic_outline_arrow_forward_24"
-        android:backgroundTint="@color/lightBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/country_new_cases"
         app:layout_constraintTop_toBottomOf="@+id/country_new_cases" />
 
