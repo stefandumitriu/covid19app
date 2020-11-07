@@ -39,5 +39,6 @@ public class RomaniaStatsActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 }

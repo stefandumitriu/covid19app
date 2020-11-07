@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CountryStatsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/romaniaImage"
+        android:layout_width="255dp"
+        android:layout_height="225dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/romania"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/country_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="@string/romania"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/romaniaImage"
+        app:layout_constraintStart_toStartOf="@+id/romaniaImage" />
+
+    <TextView
+        android:id="@+id/static_country_total_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Total Number of Cases:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/romaniaImage"
+        app:layout_constraintTop_toBottomOf="@+id/romaniaImage" />
+
+    <TextView
+        android:id="@+id/static_country_infection_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:text="Infection Rate:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/country_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/country_total_cases" />
+
+    <TextView
+        android:id="@+id/country_new_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/static_country_new_cases"
+        app:layout_constraintTop_toBottomOf="@+id/static_country_new_cases" />
+
+    <TextView
+        android:id="@+id/static_country_new_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Number of New Cases:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/country_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/country_infection_rate" />
+
+    <TextView
+        android:id="@+id/country_total_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/static_country_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/static_country_total_cases" />
+
+    <TextView
+        android:id="@+id/country_infection_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/static_country_infection_rate"
+        app:layout_constraintTop_toBottomOf="@+id/static_country_infection_rate" />
+
+    <Button
+        android:id="@+id/goToDetailedStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="20dp"
+        android:text="Detailed View"
+        android:textColor="@color/white"
+        android:drawableRight="@drawable/ic_outline_arrow_forward_24"
+        android:backgroundTint="@color/lightBlue"
+        app:layout_constraintStart_toEndOf="@+id/country_new_cases"
+        app:layout_constraintTop_toBottomOf="@+id/country_new_cases" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
