@@ -28,7 +28,8 @@
             android:textColor="@color/lightBlue"
             android:textSize="18sp"
             android:textStyle="bold"
-            style="?attr/borderlessButtonStyle" />
+            style="?attr/borderlessButtonStyle"
+            android:onClick="OpenLogin"/>
 
         <Button
             style="?attr/borderlessButtonStyle"

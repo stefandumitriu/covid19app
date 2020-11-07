@@ -30,6 +30,7 @@ public class MyCountyStatsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_my_county_stats, container, false);
+        TextView countyNameText = view.findViewById(R.id.mycounty_name);
         TextView totalCasesText = view.findViewById(R.id.county_total_cases);
         TextView newCasesText = view.findViewById(R.id.county_new_cases);
         TextView infectionRateText = view.findViewById(R.id.county_infection_rate);
@@ -70,9 +71,14 @@ public class MyCountyStatsFragment extends Fragment {
                             e.printStackTrace();
                         }
                         if(addressList.size() > 0) {
-                            String currentCity = addressList.get(0).getLocality();
+                            String currentCity = addressList.get(0).getAdminArea();
+                            currentCity = currentCity.replace("Județul ","");
+                            currentCity = currentCity.replace("Bucharest", "București");
+                            currentCity = currentCity.replace(" County", "");
+                            System.out.println(currentCity);
                             if(currentCity != null) {
                                 if(countyNames.contains(currentCity)) {
+                                    countyNameText.setText(currentCity);
                                     int idx = countyNames.indexOf(currentCity);
                                     totalCasesText.setText(totalCases.get(idx).toString());
                                     newCasesText.setText(newCases.get(idx).toString());

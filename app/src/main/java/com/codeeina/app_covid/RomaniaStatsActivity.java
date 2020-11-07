@@ -34,7 +34,7 @@ public class RomaniaStatsActivity extends AppCompatActivity {
                     default:
                         break;
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, frag).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, frag).addToBackStack(null).commit();
 
                 return true;
             }

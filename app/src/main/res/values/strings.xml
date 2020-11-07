@@ -15,4 +15,7 @@
     <string name="romania">Romania</string>
     <string name="Bucharest">București</string>
     <string name="hello_blank_fragment">Hello</string>
+    <string name="log_in_text">Log in</string>
+    <string name="LoginTitle">Welcome to the login screen</string>
+    <string name="username_hint">Enter your username</string>
 </resources>
