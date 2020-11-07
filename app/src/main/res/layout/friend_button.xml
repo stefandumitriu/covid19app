@@ -20,7 +20,7 @@
         android:id="@+id/Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7.11.2020"
+        android:text="@string/default_date"
         app:layout_constraintStart_toEndOf="@+id/FriendName"
         app:layout_constraintTop_toBottomOf="@+id/FriendName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
