@@ -105,4 +105,15 @@
         app:layout_constraintStart_toEndOf="@+id/county_new_cases"
         app:layout_constraintTop_toBottomOf="@+id/county_new_cases" />
 
+    <ImageButton
+        android:id="@+id/goToHome_1"
+        android:layout_width="41dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/ic_outline_home_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

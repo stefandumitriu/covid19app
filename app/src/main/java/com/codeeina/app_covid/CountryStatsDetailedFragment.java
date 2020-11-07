@@ -27,7 +27,6 @@ public class CountryStatsDetailedFragment extends Fragment {
         super.onAttach(context);
         if(context instanceof Activity) {
             mActivity = (FragmentActivity) context;
-            System.out.println("AAAAAAAA");
         }
 
     }

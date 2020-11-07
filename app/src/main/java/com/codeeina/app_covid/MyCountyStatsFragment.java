@@ -1,6 +1,7 @@
 package com.codeeina.app_covid;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -93,6 +95,14 @@ public class MyCountyStatsFragment extends Fragment {
         else {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
+
+        ImageButton goToHome = view.findViewById(R.id.goToHome_2);
+        goToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MainActivity.class));
+            }
+        });
 
         return view;
     }

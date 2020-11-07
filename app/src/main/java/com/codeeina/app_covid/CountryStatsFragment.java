@@ -1,5 +1,6 @@
 package com.codeeina.app_covid;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.InputStream;
@@ -66,6 +68,13 @@ public class CountryStatsFragment extends Fragment {
                         .remove(CountryStatsFragment.this)
                         .replace(R.id.fragment_layout, nextFrag)
                         .addToBackStack(null).commit();
+            }
+        });
+        ImageButton goToHome = view.findViewById(R.id.goToHome_1);
+        goToHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MainActivity.class));
             }
         });
         return view;

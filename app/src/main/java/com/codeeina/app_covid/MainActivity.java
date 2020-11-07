@@ -24,9 +24,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CovidStatsMenuActivity.class));
             }
         });
-//        InputStream inputStream = getResources().openRawResource(R.raw.out);
-//        CSVReader csvFile = new CSVReader(inputStream);
-//        List<String> scoreList = csvFile.read();
     }
 
     public void OpenLogin(View view) {
