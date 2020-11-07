@@ -6,7 +6,7 @@ import java.security.SecureRandom;
 
 public class HashHelper {
 
-    public static String get_SecurePassword(String passwordToHash) throws NoSuchAlgorithmException {
+    public static String get_SecurePassword(String passwordToHash) {
         String generatedPassword = null;
         byte[] salt = getSalt();
         try {
@@ -14,8 +14,8 @@ public class HashHelper {
             md.update(salt);
             byte[] bytes = md.digest(passwordToHash.getBytes());
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < bytes.length; i++) {
-                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            for (byte aByte : bytes) {
+                sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
         } catch (NoSuchAlgorithmException e) {
@@ -24,10 +24,11 @@ public class HashHelper {
         return generatedPassword;
     }
 
-    private static byte[] getSalt() throws NoSuchAlgorithmException {
-        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+    private static byte[] getSalt() {
+        String s = "usethisforcodegeneration";
+        byte[] sr = s.getBytes();
         byte[] salt = new byte[16];
-        sr.nextBytes(salt);
+        System.arraycopy(sr, 0, salt, 0, 16);
         return salt;
     }
 }
