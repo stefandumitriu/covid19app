@@ -6,6 +6,8 @@
     <string name="btn_4_pagina_principala">Prevention Measures</string>
     <string name="romania_stats_covidstats_menu">Romania Statistics</string>
     <string name="global_stat_covidstats_menu">Global Statistics</string>
-    <string name="romania_stats_ic_country">Raport Tara</string>
-    <string name="romania_stat_ic_county">Judetul Meu</string>
+    <string name="romania_stats_ic_country">Country Report</string>
+    <string name="romania_stat_ic_county">My County</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.InputStream;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,5 +24,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CovidStatsMenuActivity.class));
             }
         });
+        InputStream inputStream = getResources().openRawResource(R.raw.out);
+        CSVReader csvFile = new CSVReader(inputStream);
+        List<String> scoreList = csvFile.read();
+        System.out.println(scoreList);
     }
 }
