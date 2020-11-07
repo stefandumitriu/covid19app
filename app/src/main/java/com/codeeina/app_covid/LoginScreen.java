@@ -54,4 +54,8 @@ public class LoginScreen extends AppCompatActivity {
         return HashHelper.get_SecurePassword("Parola");
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }
