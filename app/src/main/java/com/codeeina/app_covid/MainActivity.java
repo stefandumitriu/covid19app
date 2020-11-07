@@ -29,4 +29,9 @@ public class MainActivity extends AppCompatActivity {
         List<String> scoreList = csvFile.read();
         System.out.println(scoreList);
     }
+
+    public void OpenLogin(View view) {
+        Intent i = new Intent(MainActivity.this, LoginScreen.class);
+        startActivity(i);
+    }
 }
