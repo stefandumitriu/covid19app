@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/ic_country"
+        android:icon="@drawable/ic_outline_info_24"
+        android:title="@string/romania_stats_ic_country"
+        android:enabled="true"
+
+        />
+    <item
+        android:id="@+id/ic_county"
+        android:icon="@drawable/ic_outline_location_on_50"
+        android:title="@string/romania_stat_ic_county"
+        android:enabled="true"
+        />
+</menu>

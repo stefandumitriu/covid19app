@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">App-Covid</string>
+    <string name="btn_1_pagina_principala">My Profile</string>
+    <string name="btn_2_pagina_principala">Covid-19 Statistics</string>
+    <string name="btn_3_pagina_principala">Covid-19 Test Locations</string>
+    <string name="btn_4_pagina_principala">Prevention Measures</string>
+    <string name="romania_stats_covidstats_menu">Romania Statistics</string>
+    <string name="global_stat_covidstats_menu">Global Statistics</string>
+    <string name="romania_stats_ic_country">Raport Tara</string>
+    <string name="romania_stat_ic_county">Judetul Meu</string>
 </resources>

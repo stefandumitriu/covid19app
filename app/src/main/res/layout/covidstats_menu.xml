@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/white">
+    tools:context=".MainActivity">
 
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
@@ -19,12 +18,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/my_profile_main_screen"
+            android:id="@+id/romania_stats_covidstats_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
-            android:drawableTop="@drawable/ic_outline_account_circle_24"
-            android:text="@string/btn_1_pagina_principala"
+            android:drawableTop="@drawable/ic_outline_location_on_24"
+            android:text="@string/romania_stats_covidstats_menu"
             android:textColor="@color/lightBlue"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -32,36 +31,12 @@
 
         <Button
             style="?attr/borderlessButtonStyle"
-            android:id="@+id/stats_main_screen"
+            android:id="@+id/global_stats_covidstats_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
-            android:drawableTop="@drawable/ic_outline_poll_24"
-            android:text="@string/btn_2_pagina_principala"
-            android:textColor="@color/lightBlue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Button
-            style="?attr/borderlessButtonStyle"
-            android:id="@+id/test_locations_main_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#00FFFFFF"
-            android:drawableTop="@drawable/ic_outline_local_hospital_24"
-            android:text="@string/btn_3_pagina_principala"
-            android:textColor="@color/lightBlue"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <Button
-            style="?attr/borderlessButtonStyle"
-            android:id="@+id/prevention_main_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#00FFFFFF"
-            android:drawableTop="@drawable/ic_outline_masks_24"
-            android:text="@string/btn_4_pagina_principala"
+            android:drawableTop="@drawable/ic_outline_public_24"
+            android:text="@string/global_stat_covidstats_menu"
             android:textColor="@color/lightBlue"
             android:textSize="18sp"
             android:textStyle="bold" />
