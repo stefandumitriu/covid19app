@@ -22,4 +22,6 @@
     <string name="hint_password">Password</string>
     <string name="wrong_credentials">Wrong username or password</string>
     <string name="logout">logout</string>
+    <string name="show_list">Show List</string>
+    <string name="new_friend">New friend</string>
 </resources>
