@@ -26,9 +26,9 @@ public class CountryStatsFragment extends Fragment {
         Vector<Integer> newCases = new Vector<>();
         Vector<Double> infectionRate = new Vector<>();
 
-        TextView totalCasesText = view.findViewById(R.id.country_total_cases);
-        TextView newCasesText = view.findViewById(R.id.country_new_cases);
-        TextView infectionRateText = view.findViewById(R.id.country_infection_rate);
+        TextView totalCasesText = view.findViewById(R.id.county_total_cases);
+        TextView newCasesText = view.findViewById(R.id.county_new_cases);
+        TextView infectionRateText = view.findViewById(R.id.county_infection_rate);
 
         for(int i = 1; i < statsList.size(); i++) {
             String manipulatedString = statsList.get(i).replaceAll("[\\[\\],]","");

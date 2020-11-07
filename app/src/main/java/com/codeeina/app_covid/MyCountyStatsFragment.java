@@ -12,22 +12,47 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
+import java.util.Vector;
 
 public class MyCountyStatsFragment extends Fragment {
     private FusedLocationProviderClient fusedLocationProviderClient;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        View view = inflater.inflate(R.layout.fragment_my_county_stats, container, false);
+        TextView totalCasesText = view.findViewById(R.id.county_total_cases);
+        TextView newCasesText = view.findViewById(R.id.county_new_cases);
+        TextView infectionRateText = view.findViewById(R.id.county_infection_rate);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
+        InputStream inputStream = getResources().openRawResource(R.raw.out);
+        CSVReader csvFile = new CSVReader(inputStream);
+        List<String> statsList = csvFile.read();
+
+        Vector<String> countyNames = new Vector<>();
+        Vector<Integer> totalCases = new Vector<>();
+        Vector<Integer> newCases = new Vector<>();
+        Vector<Double> infectionRate = new Vector<>();
+        for(int i = 1; i < statsList.size(); i++) {
+            String manipulatedString = statsList.get(i).replaceAll("[\\[\\],]","");
+            String[] params = manipulatedString.split(" ");
+            countyNames.add(params[0]);
+            int totalCasesInt = Integer.parseInt(params[1]);
+            totalCases.add(totalCasesInt);
+            int newCasesInt = Integer.parseInt(params[2]);
+            newCases.add(newCasesInt);
+            double infectionRateDouble = Double.parseDouble(params[3]);
+            infectionRate.add(infectionRateDouble);
+        }
 
         if(getActivity().getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -45,9 +70,16 @@ public class MyCountyStatsFragment extends Fragment {
                             e.printStackTrace();
                         }
                         if(addressList.size() > 0) {
-                            System.out.println(addressList.get(0).getLocality());
+                            String currentCity = addressList.get(0).getLocality();
+                            if(currentCity != null) {
+                                if(countyNames.contains(currentCity)) {
+                                    int idx = countyNames.indexOf(currentCity);
+                                    totalCasesText.setText(totalCases.get(idx).toString());
+                                    newCasesText.setText(newCases.get(idx).toString());
+                                    infectionRateText.setText(infectionRate.get(idx).toString());
+                                }
+                            }
                         }
-                        System.out.println(latitude + " " + longitude);
                     }
                 }
             });
@@ -56,8 +88,6 @@ public class MyCountyStatsFragment extends Fragment {
             requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
 
-
-
-        return inflater.inflate(R.layout.fragment_my_county_stats, container, false);
+        return view;
     }
 }

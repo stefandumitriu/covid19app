@@ -13,5 +13,6 @@
     <string name="infection_rate">Infection Rate:</string>
     <string name="county_name">County:</string>
     <string name="romania">Romania</string>
+    <string name="Bucharest">București</string>
     <string name="hello_blank_fragment">Hello</string>
 </resources>

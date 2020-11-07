@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyCountyStatsFragment">
+    tools:context=".CountryStatsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/bucharestImage"
+        android:layout_width="255dp"
+        android:layout_height="225dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/bucharest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/mycounty_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="@string/Bucharest"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bucharestImage"
+        app:layout_constraintStart_toStartOf="@+id/bucharestImage" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/static_county_total_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Total Number of Cases:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bucharestImage"
+        app:layout_constraintTop_toBottomOf="@+id/bucharestImage" />
+
+    <TextView
+        android:id="@+id/static_county_infection_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:text="Infection Rate:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/county_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/county_total_cases" />
+
+    <TextView
+        android:id="@+id/county_new_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/static_county_new_cases"
+        app:layout_constraintTop_toBottomOf="@+id/static_county_new_cases" />
+
+    <TextView
+        android:id="@+id/static_county_new_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Number of New Cases:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/county_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/county_infection_rate" />
+
+    <TextView
+        android:id="@+id/county_total_cases"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/static_county_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/static_county_total_cases" />
+
+    <TextView
+        android:id="@+id/county_infection_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/static_county_infection_rate"
+        app:layout_constraintTop_toBottomOf="@+id/static_county_infection_rate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
