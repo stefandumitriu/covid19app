@@ -34,15 +34,15 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
         ImageView flag;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            totalCasesText = itemView.findViewById(R.id.number_total_cases_global);
-            newCasesText = itemView.findViewById(R.id.number_new_cases_global);
-            casesPerMText = itemView.findViewById(R.id.number_casesperm_global);
+            totalCasesText = itemView.findViewById(R.id.total_cases_county_card);
+            newCasesText = itemView.findViewById(R.id.new_cases_county_card);
+            casesPerMText = itemView.findViewById(R.id.infRate_county_card);
             countryName = itemView.findViewById(R.id.countryName);
             flag = itemView.findViewById(R.id.countryFlag);
             entryIndex = itemView.findViewById(R.id.entryIndex);
-            totalCases = itemView.findViewById(R.id.static_total_cases_global);
-            newCases = itemView.findViewById(R.id.static_new_cases_global);
-            casesPerM = itemView.findViewById(R.id.static_casesperm_global);
+            totalCases = itemView.findViewById(R.id.statitc_total_cases_county_card);
+            newCases = itemView.findViewById(R.id.static_new_cases_county_card);
+            casesPerM = itemView.findViewById(R.id.static_infRate_county_card);
         }
     }
 

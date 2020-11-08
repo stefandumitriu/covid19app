@@ -72,7 +72,6 @@ public class GlobalStatsActivity extends AppCompatActivity {
                     country = "united_arab_emirates";
                     break;
             }
-            System.out.println(country);
             entryList.add(new GlobalEntryItem(countryNames.elementAt(i), totalCases.elementAt(i), newCases.elementAt(i), casesPerMillion.elementAt(i), i + 1,
                     this.getResources().getIdentifier(country,"drawable", GlobalStatsActivity.this.getPackageName())));
         }

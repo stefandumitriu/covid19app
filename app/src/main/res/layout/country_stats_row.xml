@@ -21,79 +21,81 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/static_country_name_global"
+                android:id="@+id/county_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/county_name"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/grey"
+                android:textSize="24sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/country_name_global"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="TextView"
-                app:layout_constraintStart_toStartOf="@+id/static_country_name_global"
-                app:layout_constraintTop_toBottomOf="@+id/static_country_name_global" />
-
-            <TextView
-                android:id="@+id/static_total_cases_global"
+                android:id="@+id/statitc_total_cases_county_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="@string/total_no_of_cases"
-                app:layout_constraintStart_toStartOf="@+id/country_name_global"
-                app:layout_constraintTop_toBottomOf="@+id/country_name_global" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/county_name"
+                app:layout_constraintTop_toBottomOf="@+id/county_name" />
 
             <TextView
-                android:id="@+id/static_new_cases_global"
+                android:id="@+id/static_new_cases_county_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="@string/new_no_of_cases"
-                app:layout_constraintStart_toStartOf="@+id/number_total_cases_global"
-                app:layout_constraintTop_toBottomOf="@+id/number_total_cases_global" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/total_cases_county_card"
+                app:layout_constraintTop_toBottomOf="@+id/total_cases_county_card" />
 
             <TextView
-                android:id="@+id/number_new_cases_global"
+                android:id="@+id/new_cases_county_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="@+id/static_new_cases_global"
-                app:layout_constraintTop_toBottomOf="@+id/static_new_cases_global" />
+                android:textColor="@color/grey"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/static_new_cases_county_card"
+                app:layout_constraintTop_toBottomOf="@+id/static_new_cases_county_card" />
 
             <TextView
-                android:id="@+id/number_total_cases_global"
+                android:id="@+id/total_cases_county_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
-                app:layout_constraintStart_toStartOf="@+id/static_total_cases_global"
-                app:layout_constraintTop_toBottomOf="@+id/static_total_cases_global" />
+                android:textColor="@color/grey"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/statitc_total_cases_county_card"
+                app:layout_constraintTop_toBottomOf="@+id/statitc_total_cases_county_card" />
 
             <TextView
-                android:id="@+id/static_casesperm_global"
+                android:id="@+id/static_infRate_county_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
                 android:text="@string/infection_rate"
-                app:layout_constraintStart_toStartOf="@+id/number_new_cases_global"
-                app:layout_constraintTop_toBottomOf="@+id/number_new_cases_global" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/new_cases_county_card"
+                app:layout_constraintTop_toBottomOf="@+id/new_cases_county_card" />
 
             <TextView
-                android:id="@+id/number_casesperm_global"
+                android:id="@+id/infRate_county_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="TextView"
+                android:textColor="@color/grey"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/static_casesperm_global"
-                app:layout_constraintTop_toBottomOf="@+id/static_casesperm_global" />
+                app:layout_constraintStart_toStartOf="@+id/static_infRate_county_card"
+                app:layout_constraintTop_toBottomOf="@+id/static_infRate_county_card" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

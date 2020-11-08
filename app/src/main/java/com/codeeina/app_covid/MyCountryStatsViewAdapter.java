@@ -28,47 +28,48 @@ public class MyCountryStatsViewAdapter extends RecyclerView.Adapter<MyCountrySta
         this.infectionRate = infectionRate;
     }
 
-
-    @NonNull
-    @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View view =  inflater.inflate(R.layout.global_stats_row, parent, false);
-        return new MyViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.countyNameText.setText(countyNames.elementAt(position));
-        holder.totalCasesText.setText(totalCases.elementAt(position).toString());
-        holder.newCasesText.setText(newCases.elementAt(position).toString());
-        holder.infectionRateText.setText(infectionRate.elementAt(position).toString());
-        if(infectionRate.elementAt(position) > 3) {
-            holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#ffbdb0"));
-        }
-        else if(infectionRate.elementAt(position) > 1.5) {
-            holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#f7f0ab"));
-        }
-        else {
-            holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#b0ffc5"));
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        return totalCases.size();
-    }
-
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView totalCasesText, newCasesText, infectionRateText, countyNameText;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            countyNameText = itemView.findViewById(R.id.country_name_global);
-            totalCasesText = itemView.findViewById(R.id.number_total_cases_global);
-            newCasesText = itemView.findViewById(R.id.number_new_cases_global);
-            infectionRateText = itemView.findViewById(R.id.number_casesperm_global);
+            countyNameText = itemView.findViewById(R.id.county_name);
+            totalCasesText = itemView.findViewById(R.id.total_cases_county_card);
+            newCasesText = itemView.findViewById(R.id.new_cases_county_card);
+            infectionRateText = itemView.findViewById(R.id.infRate_county_card);
         }
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view =  inflater.inflate(R.layout.country_stats_row, parent, false);
+        return new MyViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        if(position < countyNames.size()) {
+            holder.countyNameText.setText(countyNames.elementAt(position));
+            holder.totalCasesText.setText(totalCases.elementAt(position).toString());
+            holder.newCasesText.setText(newCases.elementAt(position).toString());
+            holder.infectionRateText.setText(infectionRate.elementAt(position).toString());
+            if(infectionRate.elementAt(position) > 3) {
+                holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#ffbdb0"));
+            }
+            else if(infectionRate.elementAt(position) > 1.5) {
+                holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#f7f0ab"));
+            }
+            else {
+                holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#b0ffc5"));
+            }
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return totalCases.size();
     }
 }

@@ -6,48 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".CountryStatsFragment">
 
-    <ImageView
-        android:id="@+id/bucharestImage"
-        android:layout_width="255dp"
-        android:layout_height="225dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/bucharest"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/mycounty_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:text="no data"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bucharestImage"
-        app:layout_constraintStart_toStartOf="@+id/bucharestImage" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/static_county_total_cases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="96dp"
         android:text="Total Number of Cases:"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/bucharestImage"
-        app:layout_constraintTop_toBottomOf="@+id/bucharestImage" />
+        app:layout_constraintStart_toStartOf="@+id/mycounty_name"
+        app:layout_constraintTop_toBottomOf="@+id/mycounty_name" />
 
     <TextView
         android:id="@+id/static_county_infection_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="96dp"
         android:text="Infection Rate:"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/county_total_cases"
+        app:layout_constraintStart_toStartOf="@+id/static_county_total_cases"
         app:layout_constraintTop_toBottomOf="@+id/county_total_cases" />
 
     <TextView
@@ -63,7 +54,7 @@
         android:id="@+id/static_county_new_cases"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="96dp"
         android:text="Number of New Cases:"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -98,5 +89,27 @@
         android:src="@drawable/ic_outline_home_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_totalCases"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="128dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="32dp"
+        android:max="20"
+        android:progressDrawable="@drawable/progress_bar"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/static_county_total_cases"
+        app:layout_constraintTop_toBottomOf="@+id/static_county_total_cases" />
+
+    <TextView
+        android:id="@+id/totalCasesPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/progressBar_totalCases"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_totalCases" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

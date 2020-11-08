@@ -10,4 +10,6 @@
     <color name="lightBlue">#69A2FF</color>
     <color name="DarkBlue">#00008b</color>
     <color name="grey">#787878</color>
+    <color name="progressBarBlue">#8ecccc</color>
+    <color name="progressBarSeek">#3a4042</color>
 </resources>

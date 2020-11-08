@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,7 @@ import java.util.Vector;
 
 public class MyCountyStatsFragment extends Fragment {
     private FusedLocationProviderClient fusedLocationProviderClient;
+    int sum;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class MyCountyStatsFragment extends Fragment {
         TextView totalCasesText = view.findViewById(R.id.county_total_cases);
         TextView newCasesText = view.findViewById(R.id.county_new_cases);
         TextView infectionRateText = view.findViewById(R.id.county_infection_rate);
+        TextView totalCasesPercentage = view.findViewById(R.id.totalCasesPercentage);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
         InputStream inputStream = getResources().openRawResource(R.raw.out);
         CSVReader csvFile = new CSVReader(inputStream);
@@ -55,6 +58,13 @@ public class MyCountyStatsFragment extends Fragment {
             double infectionRateDouble = Double.parseDouble(params[3]);
             infectionRate.add(infectionRateDouble);
         }
+
+        sum = 0;
+        for(Integer x : totalCases) {
+            sum +=x;
+        }
+
+        ProgressBar totalCasesBar = view.findViewById(R.id.progressBar_totalCases);
 
         if(getActivity().getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -81,6 +91,9 @@ public class MyCountyStatsFragment extends Fragment {
                                 if(countyNames.contains(currentCity)) {
                                     countyNameText.setText(currentCity);
                                     int idx = countyNames.indexOf(currentCity);
+                                    double perc = sum / totalCases.get(idx);
+                                    totalCasesPercentage.setText(String.format("%.2f", perc) + "% of countrywide total cases.");
+                                    totalCasesBar.setProgress((int) perc);
                                     totalCasesText.setText(totalCases.get(idx).toString());
                                     newCasesText.setText(newCases.get(idx).toString());
                                     infectionRateText.setText(infectionRate.get(idx).toString());
