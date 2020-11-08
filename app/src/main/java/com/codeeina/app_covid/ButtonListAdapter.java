@@ -12,13 +12,14 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ButtonListAdapter extends RecyclerView.Adapter<ButtonListAdapter.ButtonViewHolder> {
-    private final LinkedList<String> mButtonList;
+    private final ArrayList<String> mButtonList;
     private LayoutInflater mInflater;
 
-    public ButtonListAdapter(Context context, LinkedList<String> ButtonList) {
+    public ButtonListAdapter(Context context, ArrayList<String> ButtonList) {
         this.mInflater = LayoutInflater.from(context);
         this.mButtonList = ButtonList;
     }

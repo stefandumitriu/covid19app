@@ -1,37 +1,74 @@
 package com.codeeina.app_covid;
 
+import com.google.firebase.firestore.auth.User;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+
+import io.perfmark.Link;
 
 public class UserData {
-    private static String name = "";
-    private static boolean logged = false;
-    private static LinkedList<String> friends = new LinkedList<String>();
+    String firstName = "";
+    String lastName = "";
+    String email = "";
+    boolean logged = false;
+    List<String> friends;
 
-    public static String getName() {
-        return name;
+    public UserData(String firstName, String lastName, String email, boolean logged) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.logged = logged;
+        friends = new ArrayList<>();
+    }
+    public UserData(){
+
+    }
+    public String getName() {
+        return firstName + " " + lastName;
     }
 
-    public static void setName(String name) {
-        UserData.name = name;
+
+    public String getFirstName() {
+        return firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public static boolean isLogged() {
-        return logged;
+
+    public String getLastName() {
+        return lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public static void setLogged(boolean logged) {
-        UserData.logged = logged;
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public static LinkedList<String> getFriends() {
+
+    public List<String> getFriends() {
         return friends;
     }
-
-    public static void addFriends(String friend) {
+    public void setFriends(ArrayList<String> friends) {
+        this.friends = friends;
+    }
+    public void addFriends(String friend) {
         friends.add(friend);
     }
 
-    static {
-        friends.add("Marius");
+
+    public boolean isLogged() {
+        return logged;
+    }
+    public void setLogged(boolean logged) {
+        this.logged = logged;
     }
 }

@@ -1,57 +1,89 @@
 package com.codeeina.app_covid;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.security.NoSuchAlgorithmException;
 
 public class LoginScreen extends AppCompatActivity {
-    String name, pass;
-    EditText name_tv, pass_tv;
-    TextView login_title_tv, wrong;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    public EditText mFirstName, mLastName, mEmail, mPassword;
+    public Button mLogIn, mSignUp;
+    String userID;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(UserData.isLogged())
-            startActivity(new Intent(this, Profile.class));
-
         setContentView(R.layout.activity_login_screen);
-        name_tv = findViewById(R.id.LoginNameTV);
-        pass_tv = findViewById(R.id.LoginPassTV);
-        login_title_tv = findViewById(R.id.LoginTitle);
-        wrong = findViewById(R.id.textView);
-    }
 
-    public void Log_in(View view) {
-        wrong.setVisibility(View.GONE);
-        name = name_tv.getText().toString();
-//        Toast.makeText(this, pass_tv.getText().toString(), Toast.LENGTH_SHORT).show();
+        mEmail = findViewById(R.id.LoginNameTV);
+        mPassword = findViewById(R.id.LoginPassTV);
+        mLogIn = findViewById(R.id.loginBtn);
+        mSignUp = findViewById(R.id.button_auth);
 
-        pass = HashHelper.get_SecurePassword(pass_tv.getText().toString());
+        mLogIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = mEmail.getText().toString().trim();
+                String password = mPassword.getText().toString().trim();
 
-        if(Validate()) {
-            UserData.setName(name);
-            UserData.setLogged(true);
-            Intent i = new Intent(this, Profile.class);
-            startActivity(i);
-        } else {
-            wrong.setVisibility(View.VISIBLE);
-        }
-    }
+                fAuth = FirebaseAuth.getInstance();
+                fStore = FirebaseFirestore.getInstance();
 
-    private Boolean Validate() {
-        return pass.equals(getHash(name));
-    }
+                if(TextUtils.isEmpty(email)) {
+                    mEmail.setError("Email is Required");
+                    return;
+                }
+                if(TextUtils.isEmpty(password)) {
+                    mPassword.setError("Password is Required");
+                    return;
+                }
+                if(password.length() < 6) {
+                    mPassword.setError("Password must be at least 6 characters");
+                    return;
+                }
 
-    private String getHash(String name) {
-        return HashHelper.get_SecurePassword("Parola");
+                fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            startActivity(new Intent(LoginScreen.this, Profile.class));
+                        } else {
+                            System.out.println(task.getException().getMessage());
+                        }
+
+                    }
+                });
+            }
+        });
+
+        mSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginScreen.this, AuthScreen.class));
+            }
+        });
     }
 
     @Override

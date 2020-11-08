@@ -17,7 +17,7 @@
     <string name="hello_blank_fragment">Hello</string>
     <string name="log_in_text">Log in</string>
     <string name="LoginTitle">Welcome to the login screen</string>
-    <string name="username_hint">Enter your username</string>
+    <string name="username_hint">E-mail</string>
     <string name="healthy">Status: Healthy</string>
     <string name="hint_password">Password</string>
     <string name="wrong_credentials">Wrong username or password</string>
@@ -27,4 +27,9 @@
     <string name="default_date">7.11.2020</string>
     <string name="country_name">Country:</string>
     <string name="casesperm">Cases / 1 Million:</string>
+    <string name="new_user_button">New Account? Sign Up</string>
+    <string name="auth_title">Create new Account</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="firstName_placeholder">First Name</string>
+    <string name="lastName_placeholder">Last Name</string>
 </resources>
