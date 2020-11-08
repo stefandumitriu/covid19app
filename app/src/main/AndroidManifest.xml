@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCovid">
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".Profile"/>
         <activity android:name=".LoginScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".CovidStatsMenuActivity" />
         <activity android:name=".RomaniaStatsActivity" />
-        <activity android:name=".GlobalStatsActivity" />
+        <activity android:name=".GlobalStatsActivity"
+            android:theme="@style/Theme.AppCovid.ActionBar"/>
     </application>
 
 </manifest>

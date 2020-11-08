@@ -11,4 +11,12 @@
             <item name="android:textColorSecondary">@color/lightBlue</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.AppCovid.ActionBar" parent="Theme.MaterialComponents.DayNight">
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:colorPrimaryDark">@color/lightBlue</item>
+        <item name="android:colorAccent">@color/lightBlue</item>
+        <item name="android:textColor">@color/lightBlue</item>
+        <item name="android:textColorSecondary">@color/lightBlue</item>
+    </style>
 </resources>
