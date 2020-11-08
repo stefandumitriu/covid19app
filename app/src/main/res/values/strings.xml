@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App-Covid</string>
+    <string name="app_name"></string>
     <string name="btn_1_pagina_principala">My Profile</string>
     <string name="btn_2_pagina_principala">Covid-19 Statistics</string>
     <string name="btn_3_pagina_principala">Covid-19 Test Locations</string>
@@ -25,4 +25,6 @@
     <string name="show_list">Show List</string>
     <string name="new_friend">New friend</string>
     <string name="default_date">7.11.2020</string>
+    <string name="country_name">Country:</string>
+    <string name="casesperm">Cases / 1 Million:</string>
 </resources>

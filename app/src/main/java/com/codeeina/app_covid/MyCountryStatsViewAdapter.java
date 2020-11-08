@@ -44,13 +44,13 @@ public class MyCountryStatsViewAdapter extends RecyclerView.Adapter<MyCountrySta
         holder.newCasesText.setText(newCases.elementAt(position).toString());
         holder.infectionRateText.setText(infectionRate.elementAt(position).toString());
         if(infectionRate.elementAt(position) > 3) {
-            holder.itemView.findViewById(R.id.cardLayout).setBackgroundColor(Color.parseColor("#ffbdb0"));
+            holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#ffbdb0"));
         }
         else if(infectionRate.elementAt(position) > 1.5) {
-            holder.itemView.findViewById(R.id.cardLayout).setBackgroundColor(Color.parseColor("#f7f0ab"));
+            holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#f7f0ab"));
         }
         else {
-            holder.itemView.findViewById(R.id.cardLayout).setBackgroundColor(Color.parseColor("#b0ffc5"));
+            holder.itemView.findViewById(R.id.globalCardLayout).setBackgroundColor(Color.parseColor("#b0ffc5"));
         }
     }
 
@@ -65,10 +65,10 @@ public class MyCountryStatsViewAdapter extends RecyclerView.Adapter<MyCountrySta
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            countyNameText = itemView.findViewById(R.id.county_name);
-            totalCasesText = itemView.findViewById(R.id.number_infection_rate);
-            newCasesText = itemView.findViewById(R.id.number_new_cases);
-            infectionRateText = itemView.findViewById(R.id.number_total_cases);
+            countyNameText = itemView.findViewById(R.id.country_name_global);
+            totalCasesText = itemView.findViewById(R.id.number_total_cases_global);
+            newCasesText = itemView.findViewById(R.id.number_new_cases_global);
+            infectionRateText = itemView.findViewById(R.id.number_casesperm_global);
         }
     }
 }

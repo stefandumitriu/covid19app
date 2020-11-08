@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/county_name"
+                android:text="@string/country_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:text="@string/infection_rate"
+                android:text="@string/casesperm"
                 app:layout_constraintStart_toStartOf="@+id/number_new_cases_global"
                 app:layout_constraintTop_toBottomOf="@+id/number_new_cases_global" />
 
