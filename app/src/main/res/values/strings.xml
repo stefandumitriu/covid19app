@@ -27,4 +27,9 @@
     <string name="default_date">7.11.2020</string>
     <string name="country_name">Country:</string>
     <string name="casesperm">Cases / 1 Million:</string>:q
+    <string name="country_name">Country:</string>
+    <string name="casesperm">Cases / 1 Million:</string>
+    <string name="show_list">Show List</string>
+    <string name="new_friend">New friend</string>
+    <string name="default_date">7.11.2020</string>
 </resources>
