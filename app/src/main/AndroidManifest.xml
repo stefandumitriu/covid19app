@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.codeeina.app_covid">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_icon"
@@ -10,7 +11,8 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCovid">
-        <activity android:name=".Profile"/>
+        <activity android:name=".Prevention"></activity>
+        <activity android:name=".Profile" />
         <activity android:name=".LoginScreen" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -21,10 +23,15 @@
         </activity>
         <activity android:name=".CovidStatsMenuActivity" />
         <activity android:name=".RomaniaStatsActivity" />
-        <activity android:name=".GlobalStatsActivity"
-            android:theme="@style/Theme.AppCovid.ActionBar"/>
+        <activity
+            android:name=".GlobalStatsActivity"
+            android:theme="@style/Theme.AppCovid.ActionBar" />
         <activity android:name=".AuthScreen" />
         <activity android:name=".AddFriendActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

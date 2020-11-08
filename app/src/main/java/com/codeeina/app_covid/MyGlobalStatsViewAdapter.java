@@ -11,11 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
 
 public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStatsViewAdapter.MyViewHolder> implements Filterable {
 
@@ -31,7 +29,8 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView totalCasesText, newCasesText, casesPerMText, countryNameText;
+        TextView totalCasesText, newCasesText, casesPerMText, countryNameText,
+                totalCases, newCases, casesPerM, countryName;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -39,6 +38,11 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
             totalCasesText = itemView.findViewById(R.id.number_total_cases_global);
             newCasesText = itemView.findViewById(R.id.number_new_cases_global);
             casesPerMText = itemView.findViewById(R.id.number_casesperm_global);
+            countryName = itemView.findViewById(R.id.static_country_name_global);
+            totalCases = itemView.findViewById(R.id.static_total_cases_global);
+            newCases = itemView.findViewById(R.id.static_new_cases_global);
+            casesPerM = itemView.findViewById(R.id.static_casesperm_global);
+
         }
     }
 
@@ -60,6 +64,17 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
             holder.newCasesText.setText(newCases);
             String casesPerMillion = String.valueOf(entriesList.get(position).getCasesPerMillion());
             holder.casesPerMText.setText(casesPerMillion);
+            if(position % 2 == 0) {
+                holder.casesPerMText.setTextColor(0xFFBB86FC);
+                holder.totalCasesText.setTextColor(0xFFBB86FC);
+                holder.countryNameText.setTextColor(0xFFBB86FC);
+                holder.newCasesText.setTextColor(0xFFBB86FC);
+                holder.casesPerM.setTextColor(0xFF6200EE);
+                holder.totalCases.setTextColor(0xFF6200EE);
+                holder.countryName.setTextColor(0xFF6200EE);
+                holder.newCases.setTextColor(0xFF6200EE);
+
+            }
         }
     }
 

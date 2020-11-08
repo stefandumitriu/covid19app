@@ -65,6 +65,7 @@
             android:text="@string/btn_4_pagina_principala"
             android:textColor="@color/lightBlue"
             android:textSize="18sp"
+            android:onClick="ShowPrev"
             android:textStyle="bold" />
 
     </com.google.android.flexbox.FlexboxLayout>

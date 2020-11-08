@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="@string/Bucharest"
+        android:text="no data"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bucharestImage"
@@ -55,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:text="no data"
         app:layout_constraintStart_toStartOf="@+id/static_county_new_cases"
         app:layout_constraintTop_toBottomOf="@+id/static_county_new_cases" />
 
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:text="no data"
         app:layout_constraintStart_toStartOf="@+id/static_county_total_cases"
         app:layout_constraintTop_toBottomOf="@+id/static_county_total_cases" />
 
@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="TextView"
+        android:text="no data"
         app:layout_constraintStart_toStartOf="@+id/static_county_infection_rate"
         app:layout_constraintTop_toBottomOf="@+id/static_county_infection_rate" />
 

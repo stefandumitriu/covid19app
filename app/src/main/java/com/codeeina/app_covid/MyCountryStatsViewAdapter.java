@@ -33,7 +33,7 @@ public class MyCountryStatsViewAdapter extends RecyclerView.Adapter<MyCountrySta
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view =  inflater.inflate(R.layout.country_stats_row, parent, false);
+        View view =  inflater.inflate(R.layout.global_stats_row, parent, false);
         return new MyViewHolder(view);
     }
 

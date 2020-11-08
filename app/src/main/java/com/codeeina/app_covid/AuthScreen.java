@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,12 +20,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
-
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class AuthScreen extends AppCompatActivity {
 
@@ -46,7 +39,7 @@ public class AuthScreen extends AppCompatActivity {
         mLastName = findViewById(R.id.lastNameTV);
         mEmail = findViewById(R.id.emailAuthTV);
         mPassword = findViewById(R.id.passAuthTV);
-        mSignUp = findViewById(R.id.loginBtn);
+        mSignUp = findViewById(R.id.signBtn);
 
         mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +72,6 @@ public class AuthScreen extends AppCompatActivity {
                     mLastName.setError("Last Name is Required");
                     return;
                 }
-
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
