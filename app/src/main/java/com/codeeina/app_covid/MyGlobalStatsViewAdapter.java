@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,20 +30,19 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView totalCasesText, newCasesText, casesPerMText, countryNameText,
-                totalCases, newCases, casesPerM, countryName;
-
+        TextView totalCasesText, newCasesText, casesPerMText, totalCases, newCases, casesPerM, countryName, entryIndex;
+        ImageView flag;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            countryNameText = itemView.findViewById(R.id.country_name_global);
             totalCasesText = itemView.findViewById(R.id.number_total_cases_global);
             newCasesText = itemView.findViewById(R.id.number_new_cases_global);
             casesPerMText = itemView.findViewById(R.id.number_casesperm_global);
-            countryName = itemView.findViewById(R.id.static_country_name_global);
+            countryName = itemView.findViewById(R.id.countryName);
+            flag = itemView.findViewById(R.id.countryFlag);
+            entryIndex = itemView.findViewById(R.id.entryIndex);
             totalCases = itemView.findViewById(R.id.static_total_cases_global);
             newCases = itemView.findViewById(R.id.static_new_cases_global);
             casesPerM = itemView.findViewById(R.id.static_casesperm_global);
-
         }
     }
 
@@ -57,24 +57,16 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         if(entriesList.size() > position) {
-            holder.countryNameText.setText(entriesList.get(position).getCountryName());
+            holder.countryName.setText(entriesList.get(position).getCountryName());
             String totalCases = String.valueOf(entriesList.get(position).getTotalCases());
             holder.totalCasesText.setText(totalCases);
             String newCases = String.valueOf(entriesList.get(position).getNewCases());
             holder.newCasesText.setText(newCases);
             String casesPerMillion = String.valueOf(entriesList.get(position).getCasesPerMillion());
             holder.casesPerMText.setText(casesPerMillion);
-            if(position % 2 == 0) {
-                holder.casesPerMText.setTextColor(0xFFBB86FC);
-                holder.totalCasesText.setTextColor(0xFFBB86FC);
-                holder.countryNameText.setTextColor(0xFFBB86FC);
-                holder.newCasesText.setTextColor(0xFFBB86FC);
-                holder.casesPerM.setTextColor(0xFF6200EE);
-                holder.totalCases.setTextColor(0xFF6200EE);
-                holder.countryName.setTextColor(0xFF6200EE);
-                holder.newCases.setTextColor(0xFF6200EE);
-
-            }
+            holder.flag.setImageResource(entriesList.get(position).getId());
+            String entryIndex = String.valueOf(entriesList.get(position).getIndex());
+            holder.entryIndex.setText(entryIndex);
         }
     }
 

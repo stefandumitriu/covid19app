@@ -22,6 +22,7 @@ public class GlobalStatsActivity extends AppCompatActivity {
     Vector<Integer> totalCases = new Vector<>();
     Vector<Integer> newCases = new Vector<>();
     Vector<Integer> casesPerMillion = new Vector<>();
+
     MyGlobalStatsViewAdapter myAdapter;
     RecyclerView listStatsItems;
     List<GlobalEntryItem> entryList;
@@ -56,7 +57,24 @@ public class GlobalStatsActivity extends AppCompatActivity {
         listStatsItems = (RecyclerView) findViewById(R.id.list_global_stats);
         entryList = new ArrayList<>();
         for(int i = 0; i < countryNames.size(); i++) {
-            entryList.add(new GlobalEntryItem(countryNames.elementAt(i), totalCases.elementAt(i), newCases.elementAt(i), casesPerMillion.elementAt(i)));
+            String country = countryNames.get(i).toLowerCase().replace(" ","_");
+            switch (country) {
+                case "usa":
+                    country = "united_states_of_america";
+                    break;
+                case "uk":
+                    country = "united_kingdom";
+                    break;
+                case "czechia":
+                    country = "czech_republic";
+                    break;
+                case "uae":
+                    country = "united_arab_emirates";
+                    break;
+            }
+            System.out.println(country);
+            entryList.add(new GlobalEntryItem(countryNames.elementAt(i), totalCases.elementAt(i), newCases.elementAt(i), casesPerMillion.elementAt(i), i + 1,
+                    this.getResources().getIdentifier(country,"drawable", GlobalStatsActivity.this.getPackageName())));
         }
         myAdapter = new MyGlobalStatsViewAdapter(this, entryList);
         listStatsItems.setLayoutManager(new LinearLayoutManager(this));
