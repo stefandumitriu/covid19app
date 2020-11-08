@@ -56,7 +56,7 @@ public class GlobalStatsActivity extends AppCompatActivity {
         listStatsItems = (RecyclerView) findViewById(R.id.list_global_stats);
         entryList = new ArrayList<>();
         for(int i = 0; i < countryNames.size(); i++) {
-            entryList.add(new GlobalEntryItem(countryNames.elementAt(i), totalCases.elementAt(i), newCases.elementAt(i), casesPerMillion.elementAt(i)));
+            entryList.add(new GlobalEntryItem(countryNames.elementAt(i), totalCases.elementAt(i), newCases.elementAt(i), casesPerMillion.elementAt(i), i + 1));
         }
         myAdapter = new MyGlobalStatsViewAdapter(this, entryList);
         listStatsItems.setLayoutManager(new LinearLayoutManager(this));

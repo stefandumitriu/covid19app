@@ -31,7 +31,7 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView totalCasesText, newCasesText, casesPerMText, countryNameText;
+        TextView totalCasesText, newCasesText, casesPerMText, countryNameText, entryNumber;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -39,6 +39,7 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
             totalCasesText = itemView.findViewById(R.id.number_total_cases_global);
             newCasesText = itemView.findViewById(R.id.number_new_cases_global);
             casesPerMText = itemView.findViewById(R.id.number_casesperm_global);
+            entryNumber = itemView.findViewById(R.id.entryNumber);
         }
     }
 
@@ -60,6 +61,8 @@ public class MyGlobalStatsViewAdapter extends RecyclerView.Adapter<MyGlobalStats
             holder.newCasesText.setText(newCases);
             String casesPerMillion = String.valueOf(entriesList.get(position).getCasesPerMillion());
             holder.casesPerMText.setText(casesPerMillion);
+            String entryNumber = String.valueOf(entriesList.get(position).getEntryNumber());
+            holder.entryNumber.setText(entryNumber);
         }
     }
 

@@ -5,12 +5,14 @@ public class GlobalEntryItem {
     private int totalCases;
     private int newCases;
     private int casesPerMillion;
+    private int entryNumber;
 
-    public GlobalEntryItem(String countryName, int totalCases, int newCases, int casesPerMillion) {
+    public GlobalEntryItem(String countryName, int totalCases, int newCases, int casesPerMillion, int entryNumber) {
         this.countryName=  countryName;
         this.totalCases = totalCases;
         this.newCases = newCases;
         this.casesPerMillion = casesPerMillion;
+        this.entryNumber = entryNumber;
     }
 
     public String getCountryName() {
@@ -26,5 +28,8 @@ public class GlobalEntryItem {
     }
     public int getCasesPerMillion(){
         return casesPerMillion;
+    }
+    public int getEntryNumber() {
+        return entryNumber;
     }
 }
