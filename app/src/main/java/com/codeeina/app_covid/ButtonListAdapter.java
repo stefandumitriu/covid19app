@@ -12,8 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
+import java.util.Locale;
 
 public class ButtonListAdapter extends RecyclerView.Adapter<ButtonListAdapter.ButtonViewHolder> {
     private final ArrayList<String> mButtonList;
@@ -29,7 +33,11 @@ public class ButtonListAdapter extends RecyclerView.Adapter<ButtonListAdapter.Bu
     @Override
     public ButtonListAdapter.ButtonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.friend_button, parent, false);
-
+        TextView date = mItemView.findViewById(R.id.Date);
+        Date CurrentTime = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(CurrentTime);
+        date.setText(formattedDate);
         return new ButtonViewHolder(mItemView, this);
     }
     //Setam textul pentru buton
