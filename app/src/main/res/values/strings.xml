@@ -32,4 +32,7 @@
     <string name="sign_up_text">Sign Up</string>
     <string name="firstName_placeholder">First Name</string>
     <string name="lastName_placeholder">Last Name</string>
+    <string name="newFriendText">Add A New Friend</string>
+    <string name="fullName_placeholder">Full Name Of Friend</string>
+    <string name="submit">Submit</string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +29,14 @@ public class Profile extends AppCompatActivity {
     TextView nameTV;
     private RecyclerView mRecyclerView;
     private ButtonListAdapter mAdapter;
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    FirebaseFirestore fStore = FirebaseFirestore.getInstance();
+    FirebaseUser user;
+    FirebaseFirestore fStore;
     String userID;
     UserData loggedUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        fStore = FirebaseFirestore.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         nameTV = findViewById(R.id.Profile_nameTV);
@@ -51,6 +54,26 @@ public class Profile extends AppCompatActivity {
         });
         mRecyclerView = findViewById(R.id.recylerProfile);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        Button btnNewFriend = findViewById(R.id.buttonNewFriend);
+        btnNewFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Profile.this, AddFriendActivity.class));
+                fStore = FirebaseFirestore.getInstance();
+            }
+        });
+
+        Button logoutBtn = findViewById(R.id.logoutBtn);
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loggedUser.setLogged(false);
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Profile.this, LoginScreen.class));
+                finish();
+            }
+        });
     }
 
     @Override
@@ -58,18 +81,8 @@ public class Profile extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    public void Log_out(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this, LoginScreen.class));
-        finish();
-    }
-
     public void ShowList(View view) {
         mAdapter = new ButtonListAdapter(this, (ArrayList<String>) loggedUser.getFriends());
         mRecyclerView.setAdapter(mAdapter);
-    }
-
-    public void addFriend(View view) {
-        loggedUser.addFriends("Matei");
     }
 }

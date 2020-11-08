@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -31,9 +32,14 @@ public class LoginScreen extends AppCompatActivity {
     public EditText mFirstName, mLastName, mEmail, mPassword;
     public Button mLogIn, mSignUp;
     String userID;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
+        FirebaseUser user = fAuth.getCurrentUser();
+        if(user != null)
+            startActivity(new Intent(LoginScreen.this, Profile.class));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
 
@@ -47,9 +53,6 @@ public class LoginScreen extends AppCompatActivity {
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
-
-                fAuth = FirebaseAuth.getInstance();
-                fStore = FirebaseFirestore.getInstance();
 
                 if(TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required");
